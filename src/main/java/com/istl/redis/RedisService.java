@@ -35,8 +35,8 @@ import redis.clients.jedis.JedisShardInfo;
 /*     */   @Value("${redis.timeout}")
 /*     */   int timeout;
 
-            @Value("${redis.password}")
-    /*     */   String redisPassword;
+//            @Value("${redis.password}")
+//    /*     */   String redisPassword;
 /*     */   @Autowired
 /*     */   private EmpOfficeRedisRepository empOfficeRedisRepository;
 /*     */   
@@ -45,7 +45,7 @@ import redis.clients.jedis.JedisShardInfo;
 /*     */     
 /*     */     try {
                 JedisShardInfo shardInfo = new JedisShardInfo(this.redisHost, this.redisPort, this.timeout);
-                shardInfo.setPassword(this.redisPassword);
+//                shardInfo.setPassword(this.redisPassword);
 
 /*  44 */       jedis = new Jedis(shardInfo);
 /*  46 */     } catch (Exception e) {
@@ -57,7 +57,7 @@ import redis.clients.jedis.JedisShardInfo;
 /*     */   Jedis jedisConnectionSave() {
 /*     */     try {
                 JedisShardInfo shardInfo = new JedisShardInfo(this.redisHost, this.redisPort);
-                shardInfo.setPassword(this.redisPassword);
+//                shardInfo.setPassword(this.redisPassword);
 
                 return new Jedis(shardInfo);
 /*  56 */     } catch (Exception e) {
